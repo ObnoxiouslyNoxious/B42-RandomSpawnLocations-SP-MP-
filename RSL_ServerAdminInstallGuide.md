@@ -1,4 +1,4 @@
-# Random Spawn Locations — Server Admin Install Guide
+# Random Spawn Locations: Server Admin Install Guide
 **[B42] Random Spawn Locations [SP/MP] | Build 42.00+**
 
 ---
@@ -7,7 +7,7 @@
 
 This is a **Server Side Mod**. It replaces all Vanilla spawn choices with a single **Random Spawn, KY** option. Players are placed at a random location drawn from a curated pool of thousands of verified spawn points across Knox Country.
 
-Clients must also subscribe to the mod — it includes a small UI hook that collapses the spawn screen to a single clean entry. The spawn coordinate pool is never sent to clients.
+Clients must also subscribe to the mod; it includes a small UI hook that collapses the spawn screen to a single clean entry. The spawn coordinate pool is never sent to clients.
 
 ---
 
@@ -18,7 +18,7 @@ Clients must also subscribe to the mod — it includes a small UI hook that coll
 
 ---
 
-## Step 1 — Subscribe to the Mod
+## Step 1: Subscribe to the Mod
 
 Subscribe to **[B42] Random Spawn Locations [MP]** on the Steam Workshop.
 
@@ -31,7 +31,7 @@ All players connecting to the server must also be subscribed to the applicable M
 
 ---
 
-## Step 2 — Edit Your Server .ini
+## Step 2: Edit Your Server .ini
 
 Open your server `.ini` file located at:
 
@@ -76,7 +76,7 @@ SpawnPoint=0,0,0
 
 ---
 
-## Step 3 — Place the Spawnregions File
+## Step 3: Place the Spawnregions File
 
 A file named `[ServerName]_spawnregions.lua` must exist in your `Zomboid/Server/` folder. This file tells the server which spawn regions are available.
 
@@ -91,13 +91,13 @@ function SpawnRegions()
 end
 ```
 
-Replace `[ServerName]` with your actual server name — it must match your `.ini` filename exactly.
+Replace `[ServerName]` with your actual server name, and it must match your `.ini` filename exactly.
 
 > **Important:** Both entries are required. Muldraugh, KY must be present or the spawn selection screen will be skipped entirely.
 
 ---
 
-## Step 4 — Configure Sandbox Options
+## Step 4: Configure Sandbox Options
 
 Start your server and open the **Custom Sandbox** settings. The mod adds three new tabs:
 
@@ -118,10 +118,10 @@ Toggle individual vanilla towns on or off. Towns included in the 'Balanced' pool
 > **Recommended settings for most servers:** Default Settings
 
 ### Random Spawn - Map Mods
-Enable spawn points in supported modded map regions. All are **disabled by default** — only enable maps that are active in your server's Map= line and are listed as supported by this Mod.
+Enable spawn points in supported modded map regions. All are **disabled by default**; only enable maps that are active in your server's Map= line and are listed as supported by this Mod.
 ---
 
-## Step 5 — Start the Server
+## Step 5: Start the Server
 
 Start your server. Players will see only **Random Spawn, KY** on the character creation screen.
 
@@ -139,20 +139,20 @@ Full Save Wipe Files:
 
 ## Troubleshooting
 
-**Spawn screen is skipped entirely**
-— Check that `[ServerName]_spawnregions.lua` has both entries (Random Spawn, KY and Muldraugh, KY).
+**Spawn screen is skipped entirely**:
+Check that `[ServerName]_spawnregions.lua` has both entries (Random Spawn, KY and Muldraugh, KY).
 
-**Both "Random Spawn, KY" and "Muldraugh, KY" appear on the spawn screen**
-— The client UI hook is not loading. Ensure all players are subscribed to the mod and that `RandomSpawnLocations` is in the `Mods=` line.
+**Both "Random Spawn, KY" and "Muldraugh, KY" appear on the spawn screen**:
+The client UI hook is not loading. Ensure all players are subscribed to the mod and that `RandomSpawnLocations` is in the `Mods=` line.
 
-**Map doesn't load in Spawn Select / No Spawn description or video**
-— The `map.info` file is not being read. Ensure `Random Spawn, KY` is the first entry in your `Map=` line and that the mod is loading correctly.
+**Map doesn't load in Spawn Select / No Spawn description or video**:
+The `map.info` file is not being read. Ensure `Random Spawn, KY` is the first entry in your `Map=` line and that the mod is loading correctly.
 
-**Players spawn outside of buildings / in the ground**
-— Check the server console for "spawn not in building" errors. Note the IDs and report them on the Workshop page.
+**Players spawn outside of buildings / in the ground**:
+Check the server console for "spawn not in building" errors. Note the IDs and report them on the Workshop page.
 
-**Sandbox options not updating mid-session**
-— Sandbox filter changes made via the Admin menu require returning to the main menu to take effect. This is a known non-issue for live servers where settings are configured before startup. Changing sandbox settings mid-session via the Admin menu is generally not recommended on live servers.
+**Sandbox options not updating mid-session**:
+Sandbox filter changes made via the Admin menu require returning to the main menu to take effect. This is a known non-issue for live servers where settings are configured before startup. Changing sandbox settings mid-session via the Admin menu is generally not recommended on live servers.
 
 ---
 
@@ -161,7 +161,7 @@ Full Save Wipe Files:
 1. Remove `RandomSpawnLocations` from `Mods=` in your `.ini`
 2. Remove `Random Spawn, KY` from `Map=` in your `.ini`
 3. Delete `[ServerName]_spawnregions.lua` from `Zomboid/Server/` or restore the vanilla version
-4. The save itself is unaffected — existing characters keep their current positions
+4. The save itself is unaffected, existing characters keep their current positions
 
 
 ## Notes
